@@ -1,7 +1,6 @@
 import React from 'react'
 import { 
   View,
-  StatusBar,
   Text, 
   Image
 } from 'react-native'
@@ -14,12 +13,6 @@ import { styles } from './styles'
 export function SignIn() {
   return (
     <View style={styles.container}>
-      <StatusBar 
-        barStyle='light-content'
-        backgroundColor='transparent'
-        translucent
-      />
-
       <Image 
         source={IllustrationImg}
         resizeMode='stretch'
@@ -28,8 +21,8 @@ export function SignIn() {
 
       <View style={styles.content}>
         <Text style={styles.title}>
-          Conecte-se {`\n`}
-          e organize suas {`\n`}
+          Conecte-se {'\n'}
+          e organize suas {'\n'}
           jogatinas
         </Text>
 
