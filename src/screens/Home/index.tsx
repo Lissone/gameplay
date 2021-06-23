@@ -63,6 +63,7 @@ export function Home() {
       <CategorySelect
         categorySelected={category}
         setCategory={handleCategorySelect}
+        hasCheckBox
       />
 
       <View style={styles.content}>

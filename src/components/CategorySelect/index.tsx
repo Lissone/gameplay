@@ -8,10 +8,11 @@ import { styles } from './styles'
 
 interface CategorySelectProps {
   categorySelected: string
+  hasCheckBox?: boolean
   setCategory: (categoryId: string) => void
 }
 
-export function CategorySelect({ categorySelected, setCategory }: CategorySelectProps) {
+export function CategorySelect({ categorySelected, setCategory, hasCheckBox = false }: CategorySelectProps) {
   return (
     <ScrollView
       horizontal
@@ -25,6 +26,7 @@ export function CategorySelect({ categorySelected, setCategory }: CategorySelect
             key={category.id}
             title={category.title}
             icon={category.icon}
+            hasCheckBox={hasCheckBox}
             checked={category.id === categorySelected}
             onPress={() => setCategory(category.id)}
           />
