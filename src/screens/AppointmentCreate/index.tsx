@@ -4,7 +4,7 @@ import {
   Text,
   Platform,
   ScrollView, 
-  KeyboardAvoidingView 
+  KeyboardAvoidingView
 } from 'react-native'
 import { RectButton } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
@@ -16,13 +16,32 @@ import { GuildIcon } from '../../components/GuildIcon'
 import { SmallInput } from '../../components/SmallInput'
 import { TextArea } from '../../components/TextArea'
 import { Button } from '../../components/Button'
-
+import { ModalView } from '../../components/ModalView'
+import { Guilds } from '../Guilds'
 
 import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
 
+interface GuildType {
+  id: string
+  name: string
+  icon: string | null
+  owner: boolean
+}
+
 export function AppointmentCreate() {
   const [category, setCategory] = useState('')
+  const [openGuildModal, setOpenGuildModal] = useState(false)
+  const [guild, setGuild] = useState({} as GuildType)
+
+  function handleOpenGuildModal() {
+    setOpenGuildModal(true)
+  }
+
+  function handleGuildSelect(guildSelected: GuildType) {
+    setGuild(guildSelected)
+    setOpenGuildModal(false)
+  }
 
   return (
     <KeyboardAvoidingView
@@ -46,17 +65,17 @@ export function AppointmentCreate() {
           />
 
           <View style={styles.form}>
-            <RectButton>
+            <RectButton onPress={handleOpenGuildModal}>
               <View style={styles.select}>
-                {
-                  // <View style={styles.image} />
-                  
-                  <GuildIcon />
+                { 
+                  guild.icon 
+                  ? <GuildIcon /> 
+                  : <View style={styles.image}/>
                 }
 
                 <View style={styles.selectBody}>
                   <Text style={styles.label}>
-                    Selecione um servidor
+                    {guild.name ? guild.name : 'Selecione um servidor'}
                   </Text>
                 </View>
 
@@ -125,6 +144,10 @@ export function AppointmentCreate() {
           </View>
         </Background>
       </ScrollView>
+
+      <ModalView visible={openGuildModal}>
+        <Guilds handleGuildSelect={handleGuildSelect} />
+      </ModalView>
     </KeyboardAvoidingView>
   )
 }
