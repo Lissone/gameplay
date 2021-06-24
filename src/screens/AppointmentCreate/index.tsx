@@ -34,8 +34,16 @@ export function AppointmentCreate() {
   const [openGuildModal, setOpenGuildModal] = useState(false)
   const [guild, setGuild] = useState({} as GuildType)
 
+  function handleCategorySelect(categoryId: string) {
+    setCategory(categoryId)
+  }
+
   function handleOpenGuildModal() {
     setOpenGuildModal(true)
+  }
+
+  function handleCloseModal() {
+    setOpenGuildModal(false)
   }
 
   function handleGuildSelect(guildSelected: GuildType) {
@@ -48,8 +56,8 @@ export function AppointmentCreate() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}
     >
-      <ScrollView>
-        <Background>
+      <Background>
+        <ScrollView>
           <Header 
             title='Agendar partida' 
           />
@@ -60,7 +68,7 @@ export function AppointmentCreate() {
 
           <CategorySelect 
             hasCheckBox
-            setCategory={setCategory}
+            setCategory={handleCategorySelect}
             categorySelected={category}
           />
 
@@ -89,7 +97,7 @@ export function AppointmentCreate() {
 
             <View style={styles.field}>
               <View>
-                <Text style={styles.label}>
+                <Text style={[styles.label, { marginBottom: 12 }]}>
                   Dia e mês
                 </Text>
 
@@ -105,7 +113,7 @@ export function AppointmentCreate() {
               </View>
 
               <View>
-                <Text style={styles.label}>
+                <Text style={[styles.label, { marginBottom: 12 }]}>
                   Hora e minuto
                 </Text>
 
@@ -142,10 +150,13 @@ export function AppointmentCreate() {
               <Button title='Agendar'/>
             </View>
           </View>
-        </Background>
-      </ScrollView>
+        </ScrollView>
+      </Background>
 
-      <ModalView visible={openGuildModal}>
+      <ModalView 
+        visible={openGuildModal}
+        closeModal={handleCloseModal}
+      >
         <Guilds handleGuildSelect={handleGuildSelect} />
       </ModalView>
     </KeyboardAvoidingView>

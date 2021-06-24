@@ -30,6 +30,42 @@ export function Guilds({ handleGuildSelect }: GuildsProps) {
       name: 'Épicos',
       icon: null,
       owner: true
+    },
+    {
+      id: '3',
+      name: 'Épicos',
+      icon: null,
+      owner: true
+    },
+    {
+      id: '4',
+      name: 'Épicos',
+      icon: null,
+      owner: true
+    },
+    {
+      id: '5',
+      name: 'Épicos',
+      icon: null,
+      owner: true
+    },
+    {
+      id: '6',
+      name: 'Épicos',
+      icon: null,
+      owner: true
+    },
+    {
+      id: '7',
+      name: 'Épicos',
+      icon: null,
+      owner: true
+    },
+    {
+      id: '8',
+      name: 'Épicos',
+      icon: null,
+      owner: true
     }
   ]
 
@@ -45,6 +81,8 @@ export function Guilds({ handleGuildSelect }: GuildsProps) {
             onPress={() => handleGuildSelect(item)}
           />
         )}
+        contentContainerStyle={{ paddingBottom: 50 }}
+        ListHeaderComponent={() => <ListDivider />}
         ItemSeparatorComponent={() => <ListDivider />}
         style={styles.guilds}
       />

@@ -50,6 +50,39 @@ export function Home() {
       category: '1',
       date: '22/06 ás 20:40h',
       description: 'É hoje que vamos chegar no challenger sem perder uma partida da md10'
+    },
+    { 
+      id: '4', 
+      guild: {
+        id: '1',
+        name: 'Lendários',
+        owner: true
+      },
+      category: '1',
+      date: '22/06 ás 20:40h',
+      description: 'É hoje que vamos chegar no challenger sem perder uma partida da md10'
+    },
+    { 
+      id: '5', 
+      guild: {
+        id: '1',
+        name: 'Lendários',
+        owner: true
+      },
+      category: '1',
+      date: '22/06 ás 20:40h',
+      description: 'É hoje que vamos chegar no challenger sem perder uma partida da md10'
+    },
+    { 
+      id: '6', 
+      guild: {
+        id: '1',
+        name: 'Lendários',
+        owner: true
+      },
+      category: '1',
+      date: '22/06 ás 20:40h',
+      description: 'É hoje que vamos chegar no challenger sem perder uma partida da md10'
     }
   ]
 
@@ -78,26 +111,25 @@ export function Home() {
         hasCheckBox
       />
 
-      <View style={styles.content}>
-        <ListHeader 
-          title='Partidas agendadas'
-          subTitle='Total de 6'
-        />
+      <ListHeader 
+        title='Partidas agendadas'
+        subTitle='Total de 6'
+      />
 
-        <FlatList 
-          data={appointments}
-          keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={false}
-          style={styles.matches}
-          renderItem={({ item }) => (
-            <Appointment 
-              data={item} 
-              onPress={handleAppointmentDetails} 
-            />
-          )}
-          ItemSeparatorComponent={() => <ListDivider />}
-        />
-      </View>
+      <FlatList 
+        data={appointments}
+        keyExtractor={item => item.id}
+        showsVerticalScrollIndicator={false}
+        style={styles.matches}
+        renderItem={({ item }) => (
+          <Appointment 
+            data={item} 
+            onPress={handleAppointmentDetails} 
+          />
+        )}
+        contentContainerStyle={{ paddingBottom: 50 }}
+        ItemSeparatorComponent={() => <ListDivider />}
+      />
     </Background>
   )
 }
