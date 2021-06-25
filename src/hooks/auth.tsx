@@ -7,13 +7,6 @@ import React, {
 import * as AuthSession from 'expo-auth-session'
 
 import { api } from '../services/api'
-import { 
-  REDIRECT_URI,
-  SCOPE,
-  RESPONSE_TYPE,
-  CLIENT_ID,
-  CDN_IMAGE
-} from '../configs'
 
 interface User {
   id: string
@@ -26,8 +19,9 @@ interface User {
 
 type AuthorizationResponse = AuthSession.AuthSessionResult & {
   params: {
-    access_token: string
-    token_type: string
+    access_token?: string
+    token_type?: string
+    error?:string
   }
 }
 
@@ -40,6 +34,12 @@ interface AuthContextType {
 interface AuthContextProviderProps {
   children: ReactNode
 }
+
+const { REDIRECT_URI } = process.env
+const { SCOPE } = process.env
+const { RESPONSE_TYPE } = process.env
+const { CLIENT_ID} = process.env
+const { CDN_IMAGE } = process.env
 
 export const AuthContext = createContext({} as AuthContextType)
 
@@ -55,7 +55,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
       
       const { type, params } = await AuthSession.startAsync({ authUrl }) as AuthorizationResponse
 
-      if (type === 'success') {
+      if (type === 'success' && !params.error) {
         api.defaults.headers.authorization = `${params.token_type} ${params.access_token}`
 
         const userInfo = await api.get('/users/@me')
@@ -68,14 +68,12 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
           firstName,
           token: params.access_token
         })
-
-        setLoading(false)
-      } else {
-        setLoading(false)
       }
 
     } catch(err) {
       throw new Error(err)
+    } finally {
+      setLoading(false)
     }
   }
 
