@@ -44,8 +44,8 @@ export function Home() {
     categoryId === category ? setCategory('') : setCategory(categoryId)
   }
 
-  function handleAppointmentDetails() {
-    navigation.navigate('AppointmentDetails')
+  function handleAppointmentDetails(appointmentSelected: AppointmentType) {
+    navigation.navigate('AppointmentDetails', { appointmentSelected })
   }
 
   function handleAppointmentCreate() {
@@ -84,7 +84,7 @@ export function Home() {
             renderItem={({ item }) => (
               <Appointment 
                 data={item} 
-                onPress={handleAppointmentDetails} 
+                onPress={() => handleAppointmentDetails(item)} 
               />
             )}
             contentContainerStyle={{ paddingBottom: 50 }}

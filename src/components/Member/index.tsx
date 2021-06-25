@@ -6,24 +6,26 @@ import { Avatar } from '../Avatar'
 import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
 
-interface MemberProps {
-  id: string
-  username: string
-  avatar: string
-  status: string
+export interface MemberProps {
+  data: {
+    id: string
+    username: string
+    avatar_url: string
+    status: string
+  }
 }
 
-export function Member({ id, username, avatar, status }: MemberProps) {
+export function Member({ data }: MemberProps) {
   const { on, primary } = theme.colors
-  const isOnline = status === 'online'
+  const isOnline = data.status === 'online'
 
   return (
     <View style={styles.container}>
-      <Avatar urlImage={avatar}/>
+      <Avatar urlImage={data.avatar_url}/>
 
       <View>
         <Text style={styles.title}>
-          {username}
+          {data.username}
         </Text>
 
         <View style={styles.status}>
