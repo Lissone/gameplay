@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { ImageBackground, View, Text, Alert } from 'react-native'
+import { 
+  ImageBackground, 
+  View, 
+  Text, 
+  Alert, 
+  Platform, 
+  Share
+} from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler'
 import { FlatList } from 'react-native-gesture-handler'
 import { Fontisto } from '@expo/vector-icons'
@@ -56,12 +63,29 @@ export function AppointmentDetails() {
     }
   }
 
+  function handleShareInvitation() {
+    if (guildWidget.instant_invite === null) {
+      Alert.alert('O servidor não permite enviar convites.')
+      return
+    }
+
+    const message = Platform.OS === 'ios' 
+    ? `Junte-se a ${appointmentSelected.guild.name}`
+    : guildWidget.instant_invite
+
+    Share.share({
+      message,
+      url: guildWidget.instant_invite
+    })
+  }
+
   return (
     <Background>
       <Header 
         title='Detalhes' 
         action={
-          <BorderlessButton>
+          appointmentSelected.guild.owner &&
+          <BorderlessButton onPress={handleShareInvitation}>
             <Fontisto 
               name='share'
               size={24}
@@ -110,7 +134,7 @@ export function AppointmentDetails() {
 
       <View style={styles.footer}>
         <ButtonIcon 
-          title='Entrar na partida' 
+          title='Entrar na partida'
         />
       </View>
     </Background>
