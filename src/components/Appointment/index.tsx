@@ -10,7 +10,7 @@ import { GuildIcon } from '../GuildIcon'
 import { theme } from '../../global/styles/theme'
 import { styles } from './styles'
 
-export interface GuildType {
+interface GuildType {
   id: string
   name: string
   icon: string | null
