@@ -23,6 +23,7 @@ export function Home() {
       guild: {
         id: '1',
         name: 'Lendários',
+        icon: null,
         owner: true
       },
       category: '1',
@@ -34,6 +35,7 @@ export function Home() {
       guild: {
         id: '1',
         name: 'Lendários',
+        icon: null,
         owner: true
       },
       category: '1',
@@ -45,6 +47,7 @@ export function Home() {
       guild: {
         id: '1',
         name: 'Lendários',
+        icon: null,
         owner: true
       },
       category: '1',
@@ -56,6 +59,7 @@ export function Home() {
       guild: {
         id: '1',
         name: 'Lendários',
+        icon: null,
         owner: true
       },
       category: '1',
@@ -67,6 +71,7 @@ export function Home() {
       guild: {
         id: '1',
         name: 'Lendários',
+        icon: null,
         owner: true
       },
       category: '1',
@@ -78,6 +83,7 @@ export function Home() {
       guild: {
         id: '1',
         name: 'Lendários',
+        icon: null,
         owner: true
       },
       category: '1',

@@ -13,6 +13,7 @@ import { styles } from './styles'
 export interface GuildType {
   id: string
   name: string
+  icon: string | null
   owner: boolean
 }
 
@@ -37,7 +38,10 @@ export function Appointment({ data, ...rest }: AppointmentProps) {
   return (
     <RectButton {...rest}>
       <View style={styles.container}>
-        <GuildIcon />
+        <GuildIcon 
+          guildId={data.guild.id}
+          iconId={data.guild.icon}
+        />
 
         <View style={styles.content}>
           <View style={styles.header}>
