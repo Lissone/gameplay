@@ -11,6 +11,7 @@ import { BorderlessButton } from 'react-native-gesture-handler'
 import { FlatList } from 'react-native-gesture-handler'
 import { Fontisto } from '@expo/vector-icons'
 import { useRoute } from '@react-navigation/native'
+import * as Linking from 'expo-linking'
 
 import BannerImg from '../../assets/banner.png'
 
@@ -79,6 +80,15 @@ export function AppointmentDetails() {
     })
   }
 
+  function handleOpenGuild() {
+    if (guildWidget.instant_invite === null) {
+      Alert.alert('O servidor não permite enviar convites.')
+      return
+    }
+
+    Linking.openURL(guildWidget.instant_invite)
+  }
+
   return (
     <Background>
       <Header 
@@ -132,11 +142,14 @@ export function AppointmentDetails() {
         </>
       }
 
-      <View style={styles.footer}>
-        <ButtonIcon 
-          title='Entrar na partida'
-        />
-      </View>
+      {appointmentSelected.guild.owner &&
+        <View style={styles.footer}>
+          <ButtonIcon 
+            title='Entrar na partida'
+            onPress={handleOpenGuild}
+          />
+        </View>
+      }
     </Background>
   )
 }
