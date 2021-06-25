@@ -32,6 +32,7 @@ interface AuthContextType {
   user: User
   loading: boolean
   signIn: () => Promise<void>
+  signOut: () => Promise<void>
 }
 
 interface AuthContextProviderProps {
@@ -100,12 +101,19 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     }
   }
 
+  async function signOut() {
+    setUser({} as User)
+
+    await AsyncStorage.removeItem(COLLECTION_USERS)
+  }
+
   return (
     <AuthContext.Provider 
       value={{
         user,
         loading,
-        signIn
+        signIn,
+        signOut
       }}
     >
       {children}
