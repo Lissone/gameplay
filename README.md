@@ -7,8 +7,8 @@
   <a href="#requirements">Requirements</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#demonstration">Demonstration</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#usage">Usage</a>
+  <a href="#usage">Usage</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#demonstration">Demonstration</a>
 </p>
 <br />
 <p align="center">
@@ -53,6 +53,26 @@ First time I develop a mobile app with react native and its technologies. Powere
 
 You can view the project layout via this <a href="https://www.figma.com/file/KCohZngN3UX60qgdvekLGK/GamePlay-NLW-Together?node-id=58913%3A83" target="_blank">link</a>. You must have a <a href="https://figma.com" target="_blank">Figma</a> account to access it.
 
+## Usage
+
+You can clone it on your pc using the command:
+```bash
+git clone https://github.com/Lissone/gameplay.git
+cd gameplay
+```
+
+Install dependencies using:
+```bash
+yarn
+#or
+npm run
+```
+
+Run project:
+```bash
+expo start
+```
+
 ## Demonstration
 
 <table>
@@ -74,26 +94,6 @@ You can view the project layout via this <a href="https://www.figma.com/file/KCo
   </tr>
 </table>
 
-## Usage
-
-You can use this project as a template for another one, or clone it on your pc using the command:
-
-```bash
-git clone https://github.com/Lissone/gameplay.git
-cd gameplay
-```
-
-Install dependencies using:
-```bash
-yarn
-#or
-npm run
-```
-
-Run project:
-```bash
-expo start
-```
 
 ## License
 
