@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="GamePlay" src="./assets/icon.png" height="150px" width="150px" />
+  <img alt="GamePlay logo" src="./assets/icon.png" height="150px" width="150px" />
 </h1>
 
 <p align="center">
@@ -32,44 +32,55 @@
 ## Description
 
 Mobile application with the aim of making appointments for online matches with your friends. With OAuth2 integration with the discord api and database with async storage, to save user data and schedules.
+
 First time I develop a mobile app with react native and its technologies. Powered by NLW 6 Together marathon, taught by Rodrigo, Educator  of rocketseat from April 20th to 27th, 2021.
 
 ## Requirements
 
-* [Yarn](https://yarnpkg.com/)
-* [Nodejs](https://nodejs.org/en/)
-* [Expo](https://docs.expo.io/)
+- [Nodejs](https://nodejs.org/en/)
+- [Npm](https://www.npmjs.com/)
+- [Expo](https://docs.expo.io/)
+- [Yarn](https://yarnpkg.com/)
 
 ## Technologies
 
-* Expo
-* ReactNative
-* Typescript
-* StyleSheet
-* AsyncStorage
-* OAuth2 (Discord api)
+- ReactNative
+- Expo
+- Typescript
+- StyleSheet
+- AsyncStorage
+- OAuth2 (Discord api)
 
 ## Layout
 
-You can view the project layout via this <a href="https://www.figma.com/file/KCohZngN3UX60qgdvekLGK/GamePlay-NLW-Together?node-id=58913%3A83" target="_blank">link</a>. You must have a <a href="https://figma.com" target="_blank">Figma</a> account to access it.
+You can view the project layout via this <a href="https://www.figma.com/file/KCohZngN3UX60qgdvekLGK/GamePlay-NLW-Together?node-id=58913%3A83" target="_blank">link</a>.
 
 ## Usage
 
 You can clone it on your pc using the command:
+
 ```bash
 git clone https://github.com/Lissone/gameplay.git
 cd gameplay
 ```
 
 Install dependencies using:
+
 ```bash
 yarn
 #or
-npm run
+npm install
+#or
+expo install
 ```
 
 Run project:
+
 ```bash
+yarn start
+#or
+npm run start
+#or
 expo start
 ```
 
